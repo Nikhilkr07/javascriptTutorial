@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Learn javascript in Youtube</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const sayNikhil = function(){
+        console.log("nikhil");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best Js Series"
+    }
+
+    const time = setTimeout(sayNikhil, 2000)
+
+    // clear time out ko reference dena padta hai aap kon se timeout ko hatana chahte hai
+    document.querySelector('#stop').addEventListener('click', () =>{
+        clearTimeout(time)
+        console.log("Stoped");
+    })
+</script>
+</html>

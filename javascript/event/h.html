@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<style>
+    #timer {
+        font-size: 24px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div id="timer">60</div>
+
+    <script>
+        // Function to start the countdown timer
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0; // Set timer to 0 when it reaches negative values
+                    // You can perform additional actions here when the timer reaches 0
+                    clearInterval(interval); // Stop the timer
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var display = document.getElementById('timer');
+            startTimer(60, display); // Set the timer duration in seconds
+        };
+
+        window.addEventListener('beforeunload', (event) => {
+    alert('you want')
+    event.returnValue = `Are you sure you want to leave?`;
+  });
+    </script>
+</body>
+</html>

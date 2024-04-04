@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <div class="container" style="background-color: #414141; color: white">
+        <ul id="images" >
+            <li><img src="960x0.webp" alt="" id="car"></li>
+            <li><img src="herbalife.png" alt="" id="herbalife"></li>
+            <li><img src="Img.jpg" alt="" id="laptop"></li>
+            <li><img src="photo-1546587348-d12660c30c50.jpeg" alt="" id="moutain"></li>
+            <li><a href="https://www.google.com/" id="google" style="color: white;">google</a></li>
+        </ul>
+    </div>
+</body>
+
+<script> 
+/*document.getElementById('images').addEventListener('click',(e) =>{
+    console.log("clicked on ul tag");
+}) // by default false hota hai
+
+document.getElementById('herbalife').addEventListener('click',(e) =>{
+    // alert('Range rover image')
+    console.log("image of herbalife");
+})*/
+// output me agar ham herbalife image me cliak karenge to print hoga image of herbalife and than clicked on ul tag beacuse of bubbling
+/*document.getElementById('images').addEventListener('click',(e) =>{
+    console.log("clicked on ul tag");
+},true) // by default false hota hai
+
+document.getElementById('herbalife').addEventListener('click',(e) =>{
+    // alert('Range rover image')
+    console.log("image of herbalife");
+},true)*/
+
+/*document.getElementById('images').addEventListener('click',(e) =>{
+    console.log("clicked on ul tag");
+},false) // by default false hota hai/
+
+document.getElementById('herbalife').addEventListener('click',(e) =>{
+    // alert('Range rover image')
+    e.stopPropagation();
+    console.log("image of herbalife");
+},false)*/ // by default false hi hota hai
+
+// Event propagation
+
+/*document.getElementById('google').addEventListener('click',(e) =>{
+    e.preventDefault();
+    e.stopPropagation()
+    console.log("Clicked inside google");
+})*/
+
+// image gayab on click
+  document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.tagName);
+    if(e.target.tagName === 'IMG'){
+        console.log(e.target.parentNode);
+    let removeIt = e.target.parentNode;
+    removeIt.remove();
+    }
+  })
+// topic padhna hai:- timestamp, defalutPrevented, 
+//target, toElement, srcElement, currentTarget,
+//clientX, clientY, screenX, screeY
+// altkey, ctrlkey, shiftkey, keycode
+
+
+
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>Javascript</li>
+        <!-- yahan per or bhi elements add karna hai using javaScript -->
+    </ul>
+</body>
+
+<script>
+    function addLanguage(lang){
+       const li =  document.createElement('li');
+       li.innerHTML = `${lang}`
+       document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("java")
+    addLanguage("python")
+
+    // optimize tarika item add karne kas
+
+   function addLanguage1(lang){
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(lang))
+    document.querySelector('.language').appendChild(li)
+   }
+   addLanguage1("c++")
+
+   const secondlan = document.querySelector("li:nth-child(2)")
+//    secondlan.innerHTML = "mongo"
+const newli = document.createElement('li')
+newli.textContent = "mongodb"
+secondlan.replaceWith(newli)
+
+const firstlang = document.querySelector('li:first-child')
+firstlang.outerHTML = "<li>Typescript</>"
+
+const removelast = document.querySelector('li:last-child')
+removelast.remove()
+</script>
+</html>
